@@ -20,10 +20,8 @@ namespace DataAcessLayer.Entity
         public string Password { get; set; }
 
         public int Age { get; set; }
-        
 
-
-
+        public ICollection<Book> Books { get; set; }         
 
     }
 }

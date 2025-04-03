@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using BusinessLayer.Interface;
 using BusinessLayer.Service;
 using DataAcessLayer.Context;
@@ -19,9 +20,15 @@ builder.Services.AddDbContext<UserDbContext>(option=>option.UseSqlServer(builder
 
 builder.Services.AddScoped<IUserDataService, UserDataService>();
 builder.Services.AddScoped<IUserService,UserService>();
+builder.Services.AddScoped<IUserQADataService, UserQADataService>();
+builder.Services.AddScoped<IUserQAService, UserQAService>();
 
 
-
+// Configure JSON options to handle circular references
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

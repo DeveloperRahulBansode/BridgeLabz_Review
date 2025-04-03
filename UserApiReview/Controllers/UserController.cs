@@ -105,6 +105,7 @@ public class UserController : ControllerBase
         }
 
     }
+
     [HttpGet("AverageAgeOfUser")]
     public async Task<IActionResult> AverageAgeOfUser()
     {

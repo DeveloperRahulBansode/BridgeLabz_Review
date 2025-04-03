@@ -14,6 +14,8 @@ namespace DataAcessLayer.Context
         public UserDbContext(DbContextOptions<UserDbContext> options) : base(options) { }
         
         public DbSet<User> Users { get; set; }
+        public DbSet<Book> Books { get; set; }
+
 
     }
 }
